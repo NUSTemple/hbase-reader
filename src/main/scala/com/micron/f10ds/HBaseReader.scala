@@ -6,6 +6,8 @@ package com.micron.f10ds
  */
 
 // First
-object HBaseReader extends App {
-  println( "Hello World!" )
+object HBaseReader{
+  def main(args:Array[String]){
+    println "Hello Scala"
+  }
 }
