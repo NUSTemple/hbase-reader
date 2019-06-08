@@ -4,17 +4,22 @@ import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.hbase.client.Connection
 import org.apache.hadoop.hbase.client.ConnectionFactory
 import org.apache.hadoop.hbase.client._
+
 import org.apache.hadoop.hbase.util.Bytes
 import org.apache.hadoop.hbase.{CellUtil, HBaseConfiguration, TableName}
 import org.apache.hadoop.hbase.filter._
 import scala.collection.JavaConverters._
+import java.io.File
+import com.typesafe.config.ConfigFactory
+
 /**
  * Hello world!
  *
  */
 
+
 // First
-object HBaseReader{
+object HBaseReaderTemplate{
   val conf: Configuration = HBaseConfiguration.create()
 
   def printRow(result : Result) = {
@@ -61,9 +66,6 @@ object HBaseReader{
     dataResult.asScala.foreach(result => {
       printRow(result)
     })
-
-
-
 
 
     connection.close()
