@@ -12,12 +12,7 @@ import org.rogach.scallop._
 *
  */
 
-class Conf(arguments: Seq[String]) extends ScallopConf(arguments) {
-  val input = opt[String]("input", required = true)
-  verify()
-}
-
-object CommandLineParserTemplate {
+object CommandLineParserTemplate  {
 
 
   def main(args: Array[String]): Unit = {
@@ -33,9 +28,10 @@ object CommandLineParserTemplate {
     //    val value = ConfigFactory.load().getString("my")
     println(s"My secret value is $value")
 
-
-
-
   }
 }
 
+class Conf(arguments: Seq[String]) extends ScallopConf(arguments) {
+  val input = opt[String]("input", required = true)
+  verify()
+}
