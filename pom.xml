@@ -67,6 +67,11 @@
       <artifactId>scala-logging_2.11</artifactId>
       <version>3.9.2</version>
     </dependency>
+    <dependency>
+      <groupId>co.theasi</groupId>
+      <artifactId>plotly_2.11</artifactId>
+      <version>0.2.0</version>
+    </dependency>
     <!-- Test -->
     <dependency>
       <groupId>junit</groupId>

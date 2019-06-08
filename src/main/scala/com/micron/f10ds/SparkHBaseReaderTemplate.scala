@@ -15,7 +15,17 @@ import scala.collection.JavaConverters._
 
 object SparkHBaseReaderTemplate extends Logging {
 
+  def main(args: Array[String]): Unit = {
 
+
+
+
+
+
+
+
+
+  }
 
 
 
