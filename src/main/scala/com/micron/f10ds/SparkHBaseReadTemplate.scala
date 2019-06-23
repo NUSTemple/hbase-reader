@@ -57,15 +57,9 @@ object SparkHBaseReadTemplate {
 
       val table = connection.getTable(TableName.valueOf(tableName))
       iter.foreach { a =>
+        //@TODO
+        //ADD query
 
-
-        val arr = a.split(",")
-        val p = new Put(Bytes.toBytes(arr(rowkeyIndex)))
-        for (i <- headers.indices ) {
-          p.addColumn(Bytes.toBytes(cfamily), Bytes.toBytes(headers(i)), Bytes.toBytes(arr(i)))
-        }
-
-        table.put(p)
       }
 
     }
