@@ -29,14 +29,14 @@ object SparkHBaseWriterTemplate {
       .getOrCreate
 
     val sc = spark.sparkContext
-    val t = sc.textFile(inputPath)
+    val t = sc.textFile(inputPath).repartition(4)
     val headers = t.first.split(",").toList
     val rowkeyIndex = 6
 
     t.foreachPartition { iter =>
         val hbaseConf = HBaseConfiguration.create()
         hbaseConf.addResource("file:///home/pengtan/Downloads/hbase-site.xml")
-        hbaseConf.set("hbase.zookeeper.quorum","master01,slave01,slave02")  //设置zooKeeper集群地址，也可以通过将hbase-site.xml导入classpath，但是建议在程序里这样设置
+        hbaseConf.set("hbase.zookeeper.quorum","master01,slave01,slave02")
         hbaseConf.set("hbase.zookeeper.property.clientPort", "2181")
 
         hbaseConf.set("hbase.master", "192.168.1.169:16000")
@@ -60,9 +60,9 @@ object SparkHBaseWriterTemplate {
         }
 
     }
-
-    spark.stop()
     println("spark complete!")
+    spark.stop()
+
   }
 
 }
